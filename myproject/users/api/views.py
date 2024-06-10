@@ -2,21 +2,12 @@ from rest_framework import generics, status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from users.api.serializers import UserSerializer
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+from users.models import User
 
-
-class UserGetUpdateView(generics.RetrieveUpdateAPIView):
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
 
-    def retrieve(self, request, *args, **kwargs):
-        serializer = self.serializer_class(request.user)
-
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-    def update(self, request, *args, **kwargs):
-        serializer = self.serializer_class(
-            request.user, data=request.data, partial=True
-        )
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        return Response(serializer.data, status=status.HTTP_200_OK)

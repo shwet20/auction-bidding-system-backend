@@ -15,6 +15,7 @@ urlpatterns = [
     # Business API Endpoints
     path(settings.API_PREFIX + 'users/', include('users.api.urls')),
     path(settings.API_PREFIX + 'auth/', include('authentication.api.urls')),
+    path(settings.API_PREFIX + 'auction/', include('auction.api.urls')),
 ]
 
 if settings.DEBUG:

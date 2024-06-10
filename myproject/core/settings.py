@@ -72,7 +72,9 @@ BUSINESS_APPS = [
     'users',
     'authentication',
     'emailer',
+    'auction'
 ]
+
 INSTALLED_APPS += BUSINESS_APPS
 
 MIDDLEWARE = [

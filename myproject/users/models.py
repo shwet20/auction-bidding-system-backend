@@ -16,7 +16,6 @@ class Roles(models.TextChoices):
     """
 
     ADMIN = "ADMIN", "Admin"
-    ORG_ADMIN = "ORG_ADMIN", "Organization Admin"
     NORMAL_USER = "NORMAL_USER", "Normal User"
 
 

@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='role',
-            field=models.CharField(choices=[('ADMIN', 'Admin'), ('ORG_ADMIN', 'Organization Admin'), ('NORMAL_USER', 'Normal User')], default='NORMAL_USER', max_length=50),
+            field=models.CharField(choices=[('ADMIN', 'Admin'), ('NORMAL_USER', 'Normal User')], default='NORMAL_USER', max_length=50),
         ),
         migrations.DeleteModel(
             name='AssistantProfile',
