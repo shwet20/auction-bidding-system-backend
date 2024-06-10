@@ -1,0 +1,16 @@
+{
+    "test": {
+        "__init__.py": "",
+        "factories.py": "import factory",
+        "test_admin.py": "from django.test import TestCase",
+        "test_models.py": "from django.test import TestCase",
+        "test_apps.py": "from django.test import TestCase",
+        "test_apis.py": "from django.test import TestCase"
+    },
+    "api": {
+        "__init__.py": "",
+        "serializers.py": "from rest_framework import serializers",
+        "views.py": "from rest_framework import viewsets",
+        "urls.py": "from django.urls import include, path\nfrom rest_framework_nested import routers\n\nrouter = routers.SimpleRouter()\n\nurlpatterns = [\n\tpath('', include(router.urls))\n]"
+    }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load i18n %}{% autoescape off %}
+{% load humanize %}
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ settings.APP_NAME }}</title>
+  </head>
+
+  <body style="margin: 0; padding: 0; background-color: #ffffff;">
+    <table style="margin: 0 auto;width: 100%;max-width: 600px;border-spacing: 0;font-family: sans-serif;color: #09374b;border: 1px solid #dcebf4;" cellspacing="0" cellpadding="0" border="0">
+      <tbody style="box-shadow: 0px 1px 1px #dcebf4; background-color: white;">
+        <tr>
+          <td width="100%" style="padding: 0 0 30px 0">
+            <p style="border-bottom: 2px solid #f6f9fc; background-color: #10374c; padding: 0px; margin: 0 0 0.7em 0;">
+              <img style="padding: 32px; width: 232px;"
+                src="https://www.linkpicture.com/q/sample_logo.png"
+                alt="App logo"
+              />
+            </p>
+            <p style="padding: 15px;font-size:13px">
+              Dear {{ user.full_name }},
+            </p>
+            <p style="padding-left: 20px;padding-right: 20px;font-size:13px">
+             Welcome to {{ settings.APP_NAME }}! Your account has been successfully created. 
+            </p>
+            <p style="padding-left: 20px;padding-right: 20px;font-size:13px">
+                Best Regards,<br>
+                {{ settings.APP_NAME }} Support Team
+            </p>
+        </td>
+        </tr>
+        <tr style="background-color: #f5f7fb">
+          <td style="padding-left: 32px; padding-bottom: 10px">
+            <p style="font-size: 15px;opacity: 0.5;margin: 0px;padding-top: 24px;">
+                {{ settings.APP_NAME }}
+            </p>
+            <p style="font-size: 13px; opacity: 0.5; margin: 2px 0px">
+              <b>
+                Tagline of company/app goes here
+              </b>
+            </p>
+            <p style="font-size: 13px; opacity: 0.5;">
+              T. India: +91 00000 000000
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+{% endautoescape %}
+</html>

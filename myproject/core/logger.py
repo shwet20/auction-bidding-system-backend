@@ -1,0 +1,1 @@
+#Define generic class to send log message to console/aws cloudwatch

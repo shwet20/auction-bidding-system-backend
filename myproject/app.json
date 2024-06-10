@@ -1,0 +1,35 @@
+{
+    "name": "Django Rest Framework Seed",
+    "description": "A barebone Python app, which can easily be deployed to Heroku.",
+    "addons": [
+        "heroku-postgresql"
+    ],
+    "build_pack": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-python.git"
+        }
+    ],
+    "keywords": [
+        "python",
+        "django"
+    ],
+    "env": {
+        "DEBUG": {
+            "description": "Turn on debugging. Use 1 for on, 0 for off.",
+            "value": 1
+        },
+        "ENVIRONMENT": {
+            "description": "The environment name, e.g. 'development', 'production', etc.",
+            "value": "testing"
+        },
+        "ALLOWED_HOSTS": {
+            "description": "The hostname(s) to which Django APIs can be served. Values should be separated by commas, such as 'abc.com,example.com', or * to allow any.",
+            "value": "*"
+        },
+        "SENTRY_DSN": {
+            "description": "The Sentry DSN to use for error reporting.",
+            "value": "",
+            "required": false
+        }
+    }
+}
