@@ -45,7 +45,7 @@ This project is an Auction Bidding System backend built using Python and Django 
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/auction-bidding-system-backend.git
+    git clone https://github.com/shwet20/auction-bidding-system-backend.git
     cd auction-bidding-system-backend
     ```
 
