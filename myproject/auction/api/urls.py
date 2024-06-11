@@ -1,11 +1,10 @@
-# File created at 2024-06-10 17:11:47 UTCfrom django.urls import include, path
-from rest_framework import routers
 from django.urls import path, include
-from auction.api import views as auction_views
-from users.api import views as user_views
+from rest_framework.routers import DefaultRouter
+from auction.api.views import AuctionViewSet, BidViewSet
 
-router = routers.DefaultRouter()
-router.register(r'auctions', auction_views.AuctionViewSet)
+router = DefaultRouter()
+router.register(r'auctions', AuctionViewSet)
+router.register(r'bids', BidViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

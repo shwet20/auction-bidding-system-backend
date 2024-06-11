@@ -1,7 +1,7 @@
 from django.db import models
-from core.models import BaseModel
 from django.utils import timezone
 from users.models import User
+from core.models import BaseModel
 from .choices import AuctionStatus
 
 class Auction(BaseModel):
@@ -14,10 +14,9 @@ class Auction(BaseModel):
 
     def __str__(self):
         return f"{self.item_name} ({self.start_price})"
-    
-    # Condition: 
-    #  Once the auction is complete, ie crossing end time,  
-    #  the auction must be won by the user who has quoted the highest amount
+
+    # Condition: Once the auction is complete, i.e., crossing end time,
+    # the auction must be won by the user who has quoted the highest amount
     def complete_auction(self):
         if self.auction_status == AuctionStatus.ACTIVE and self.end_time < timezone.now():
             # Get the highest bid for this auction
@@ -27,6 +26,15 @@ class Auction(BaseModel):
                 self.user = highest_bid.user  # Assign the highest bidder as the winner
                 self.auction_status = AuctionStatus.COMPLETED
                 self.save()
-                return True
+                return highest_bid.user.username   # Return the username of the winning user
 
-        return False
+        return None  # Return None if auction is not completed or no bids found
+
+class Bid(models.Model):
+    auction = models.ForeignKey(Auction, on_delete=models.CASCADE, related_name='bids')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bids')
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    timestamp = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"Bid {self.amount} by {self.user.username} for {self.auction.item_name}"
